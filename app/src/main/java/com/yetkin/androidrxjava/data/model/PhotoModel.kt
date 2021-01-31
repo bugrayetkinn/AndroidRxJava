@@ -8,7 +8,7 @@ data class PhotoModel(
     val previewURL: String? = null,
     val previewWidth: Int? = null,
     val previewHeight: Int? = null,
-    val webformatURL: Int? = null,
+    val webformatURL: String? = null,
     val webformatWidth: Int? = null,
     val webformatHeight: String? = null,
     val largeImageURL: String? = null,

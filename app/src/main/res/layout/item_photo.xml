@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemViewState"
+            type="com.yetkin.androidrxjava.data.model.PhotoItemViewState" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgUserProfile"
+                imageUrl="@{itemViewState.userImageUrl()}"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{itemViewState.userName()}"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic|bold"
+                app:layout_constraintLeft_toRightOf="@id/imgUserProfile"
+                app:layout_constraintTop_toTopOf="@+id/imgUserProfile"
+                tools:text="Buğra Yetkin" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgPreview"
+                imageUrl="@{itemViewState.previewImageUrl()}"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgUserProfile" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgLike"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_like"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgPreview" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text='@{itemViewState.like(),default="0"}'
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imgLike"
+                app:layout_constraintTop_toBottomOf="@+id/imgPreview"
+                tools:text="245151" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgComment"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_comment"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgLike" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="21dp"
+                android:text='@{itemViewState.comment(),default="0"}'
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imgLike"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+                tools:text="245151" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_download"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgPreview" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text='@{itemViewState.download(),default="0"}'
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
+                tools:text="34214" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
